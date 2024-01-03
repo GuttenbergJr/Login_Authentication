@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Login</title>
 </head>
+
 <body>
     <main>
-        <form onsubmit="authentication()">
-            <fieldset>
-                <legend>Tela de Login</legend>
-                <p>Login:</p>
-                <input id="nome" type="text">
-                <p>Senha:</p>
-                <input id="password" type="password">
-                <p>Confirme a senha:</p>
-                <input id="confimPassword" type="password">
-                <input id="enviar" type="submit">
-            </fieldset>
+        <form onsubmit="authentication()" class="input-container">
+            <p>Login:</p>
+            <input id="nome" type="text" class="input">
+            <p>Senha:</p>
+            <input id="password" type="password" class="input">
+            <p>Confirme a senha:</p>
+            <input id="confimPassword" type="password" class="input">
+            <div>
+                <button id="enviar" type="submit" class="button">Cadastrar</button>
+            </div>
         </form>
     </main>
-    
-    
+
+
     <script src="script.js"></script>
 </body>
+
 </html>

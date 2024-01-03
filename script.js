@@ -6,8 +6,10 @@ confirmPassword = document.getElementById("confimPassword");
 
 function authentication(){
 
+
     function nameVerify(){
         nomeValue = nome.value;
+        localStorage.setItem('valueText', nomeValue);
     
         if(nomeValue == ""){
             return false
@@ -27,12 +29,10 @@ function authentication(){
         }
     }
 
-    function redirect(){
-        location.replace("https://www.w3schools.com")
-    }
 
     if(nameVerify() && passwordVerify() == true){
-        redirect()
+        window.location.href = "homepage.html";
+        alert("Conta criada com sucesso!")
     } else if(nameVerify() == false && passwordVerify() == true){
         alert("Campo 'nome' preenchido incorretamente")
     } else if(nameVerify() == true && passwordVerify() == false) {
@@ -41,3 +41,13 @@ function authentication(){
         alert("ERROR 404")
     }
 }
+//End of authentication
+
+//Simple name display
+let nameDisplay = document.getElementById("userName");
+nameDisplay.textContent = localStorage.getItem('valueText');
+//End of name display
+
+
+
+
