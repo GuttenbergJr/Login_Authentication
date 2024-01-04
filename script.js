@@ -31,7 +31,7 @@ function authentication() {
 
 
     if (nameVerify() && passwordVerify() == true) {
-        window.location.replace("./homepage.html");
+        window.location.replace("homepage.html");
         alert("Conta criada com sucesso!")
     } else if (nameVerify() == false && passwordVerify() == true) {
         alert("Campo 'nome' preenchido incorretamente")
