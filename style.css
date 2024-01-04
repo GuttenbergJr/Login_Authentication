@@ -97,54 +97,105 @@ header {
     display: flex;
     background-color: #0B2447;
     color: white;
+    border-bottom: 1px solid black;
 }
 
-/* Navbar CSS  */
-a {
-    text-decoration: none;
-    color: black;
-}
+ /* Navbar CSS  */
 
-#navPartOne,
-#navPartTwo {
-    width: 50%;
-    margin: 10px;
-}
-
-#navPartTwo {
-    text-align: end;
-
-}
-
-.nav-item {
-    width: 9em;
-    height: 3em;
-    border-radius: 30em;
-    font-size: 15px;
-    font-family: inherit;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.nav-item::before {
-    content: '';
-    width: 0;
-    height: 3em;
-    border-radius: 30em;
-    position: absolute;
+body {
+    margin: 0;
+    min-height: 200vh;
+    font-size: 0;
+    font-family: Helvetica, Verdana, sans-serif;
+  }
+  
+  nav {
+    position: fixed;
     top: 0;
     left: 0;
-    background-image: linear-gradient(to left, #0B2447 0%, #ffff 100%);
-    transition: .5s ease;
-    display: block;
-    z-index: -1;
-}
+    width: 100%;
+    padding: 16px 20px 30px 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease-out;
+    backdrop-filter: blur(8px) brightness(1.2);
+    -webkit-backdrop-filter: blur(8px) brightness(1.2);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 16px;
+  }
+  nav.mask {
+    top: 150px;
+    mask-image: linear-gradient(black 70%, transparent);
+    -webkit-mask-image: linear-gradient(black 70%, transparent);
+  }
+  nav.mask-pattern {
+    top: 300px;
+    mask-image: url("data:image/svg+xml, %3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 12.21 10.57%27%3E%3Cpath fill=%27%23ffffff%27 d=%27M6.1 0h6.11L9.16 5.29 6.1 10.57 3.05 5.29 0 0h6.1z%27/%3E%3C/svg%3E"), linear-gradient(black calc(100% - 30px), transparent calc(100% - 30px));
+    mask-size: auto 30px, 100% 100%;
+    mask-repeat: repeat-x, no-repeat;
+    mask-position: left bottom, top left;
+    -webkit-mask-image: url("data:image/svg+xml, %3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 12.21 10.57%27%3E%3Cpath fill=%27%23ffffff%27 d=%27M6.1 0h6.11L9.16 5.29 6.1 10.57 3.05 5.29 0 0h6.1z%27/%3E%3C/svg%3E"), linear-gradient(black calc(100% - 30px), transparent calc(100% - 30px));
+    -webkit-mask-size: auto 30px, 100% 100%;
+    -webkit-mask-repeat: repeat-x, no-repeat;
+    -webkit-mask-position: left bottom, top left;
+  }
+  @media (min-width: 640px) {
+    nav {
+      padding: 16px 50px 30px 50px;
+    }
+  }
+  
+  nav.is-hidden {
+    transform: translateY(-100%);
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+  
+  .list {
+    list-style-type: none;
+    margin-left: auto;
+    display: none;
+  }
+  @media (min-width: 640px) {
+    .list {
+      display: flex;
+    }
+  }
+  .list li {
+    margin-left: 20px;
+  }
+  
+  .menu {
+    display: inline-block;
+    padding: 0;
+    font-size: 0;
+    background: none;
+    border: none;
+    margin-left: 20px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+  }
+  .menu::before {
+    content: url("data:image/svg+xml, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2024.8%2018.92%27%20width=%2724.8%27%20height=%2718.92%27%3E%3Cpath%20d=%27M23.8,9.46H1m22.8,8.46H1M23.8,1H1%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-linecap=%27round%27%20stroke-width=%272%27%2F%3E%3C%2Fsvg%3E");
+  }
+  @media (min-width: 640px) {
+    .menu {
+      display: none;
+    }
+  }
+  
+  img {
+    width: 100%;
+    min-height: 200vh;
+    object-fit: cover;
+  }
 
-button:hover::before {
-    width: 9em;
-}
 
 /* End of Navbar CSS  */
 
@@ -156,15 +207,16 @@ button:hover::before {
 .button {
     display: inline-block;
     padding: 12px 24px;
-    margin: 10px;
-    border: 1px solid #4f4f4f;
-    border-radius: 4px;
+    margin: 15px;
+    border: 1px solid #ced3da;
+    border-radius: 100px;
     transition: all 0.2s ease-in;
     position: relative;
     overflow: hidden;
     font-size: 15px;
     cursor: pointer;
-    color: black;
+    color: #ffffff;
+    background-color: #233959;
     z-index: 1;
 }
 
@@ -191,7 +243,7 @@ button:hover::before {
     top: 180%;
     width: 160%;
     height: 190%;
-    background-color: #39bda7;
+    background-color:#030a15;
     border-radius: 50%;
     display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
@@ -200,18 +252,18 @@ button:hover::before {
 
 .button:hover {
     color: #ffffff;
-    border: 1px solid #0B2447;
+    border: 1px solid #ffffff;;
 }
 
 .button:hover:before {
     top: -35%;
-    background-color: #0B2447;
+    background-color: #030a15;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 
 .button:hover:after {
     top: -45%;
-    background-color: #0B2447;
+    background-color: #6c7b90;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 /* End of Main button css */
@@ -223,19 +275,63 @@ button:hover::before {
 
 #mainSection{
     background-color: #0B2447;
-    color: white;
+    color: #ffffff;
 }
 
-#Desc_Content{
+#PrincipalContentSection h1{
+  font-size: 70px;
+  margin: 10px;
+}
+
+#PrincipalContentSection p{
+  font-size: 18px;
+  margin: 10px;
+}
+
+@media (max-width: 640px) {
+  #PrincipalContentSection h1{
+    font-size: 65px;
+  }
+
+  #PrincipalContentSection p{
+    font-size: 16px;
+    width: 80%;
+  }
+}
+
+#PrincipalContentSection{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70%;
+    height: 90%;
 }
 
 
 /* End of Principal section */
+
+
+/* Second section */
+
+
+#sectionTwo{
+  background-color:#06152a;
+}
+
+
+/* End of section */
+
+
+
+/* Third section */
+
+
+#sectionThree{
+  background-color:#030a15
+}
+
+
+/* End of section */
 
 
 
